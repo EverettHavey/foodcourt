@@ -144,7 +144,7 @@ p {
 
 .hero {
     padding: 60px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/foodcourt_bg.webp') no-repeat center center/cover; /* Placeholder background */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/Hero.webp') no-repeat center center/cover; /* Placeholder background */
     color: #fff;
     border-radius: 8px;
     margin-bottom: 40px;
