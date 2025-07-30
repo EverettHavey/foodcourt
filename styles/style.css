@@ -388,3 +388,34 @@ footer {
         flex-direction: column;
     }
 }
+
+.site-top-logo {
+    width: 80px;   /* Adjusted size: make it smaller */
+    height: 80px;  /* Must match width for a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    display: block; /* Important for margin: auto to work */
+    margin: 0 auto; /* Centers the block-level image horizontally */
+    border: 3px solid #191919; /* Optional: adds a distinct border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}
+
+/* You might also want to adjust the padding in the container if needed */
+.site-top-logo-container {
+    text-align: center;
+    padding-top: 15px; /* Slightly less padding perhaps, adjust as desired */
+    padding-bottom: 5px; /* Adjust as desired */
+}
+
+/* Consider adjusting the logo text size if it's still too prominent next to the new smaller image logo */
+.logo {
+    font-size: 1.4rem; /* Example: make it slightly smaller than before */
+    /* Or if you only want the image logo and no text next to the nav: */
+    /* display: none; */
+}
+
+/* Also, ensure your header's overall padding doesn't push things around too much */
+header {
+    padding: 0; /* Ensures the logo container handles the top padding */
+    /* Keep other header styles */
+}
