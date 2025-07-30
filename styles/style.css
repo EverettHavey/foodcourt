@@ -29,7 +29,7 @@ a:hover {
 
 /* Header & Navigation */
 header {
-    background: #2c3e50;
+    background: #2c3e50; /* Dark blue/gray */
     color: #fff;
     padding: 1rem 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -73,7 +73,7 @@ nav ul li a:hover {
 /* Buttons */
 .button {
     display: inline-block;
-    background: #007bff;
+    background: #007bff; /* Primary blue */
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -90,7 +90,7 @@ nav ul li a:hover {
 }
 
 .button.secondary {
-    background: #6c757d;
+    background: #6c757d; /* Gray for secondary action */
 }
 
 .button.secondary:hover {
@@ -108,7 +108,7 @@ main {
 }
 
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #2c3e50; /* Dark blue/gray, matching header */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -144,10 +144,17 @@ p {
 
 .hero {
     padding: 60px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('foodcourt/images/Hero.webp') no-repeat center center/cover; /* Placeholder background */
+    /* CORRECTED PATH: Assumes style.css is in 'styles' folder and image is in 'images' folder, both peer to the main HTML file. */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Hero.webp') no-repeat center center/cover;
+    min-height: 400px; /* Ensures the background image has space to show */
+    display: flex; /* Use flexbox for vertical and horizontal centering of content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: #fff;
     border-radius: 8px;
     margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow to the hero section */
 }
 
 .hero h1 {
@@ -171,7 +178,7 @@ p {
 }
 
 .feature-item {
-    background: #e9ecef;
+    background: #e9ecef; /* Light gray */
     padding: 30px;
     border-radius: 8px;
     flex: 1;
@@ -183,7 +190,7 @@ p {
 
 .feature-item h3 {
     margin-bottom: 10px;
-    color: #007bff;
+    color: #007bff; /* Primary blue */
 }
 
 /* Lawyers Page Specifics */
@@ -212,7 +219,7 @@ p {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
-    border: 3px solid #007bff;
+    border: 3px solid #007bff; /* Primary blue border */
 }
 
 .lawyer-card h2 {
@@ -308,6 +315,30 @@ p {
 }
 
 /* About Us Page Specifics */
+/* This section should likely be used for the *main content image* in aboutus.html,
+   not for the overall site logo in the header. */
+.about-image-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.about-hero-image { /* This class name might be confusing if used for hero banners too */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; /* Makes the image circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px; /* Fixed size for circular image */
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid #d4af37; /* Gold border around the circular image */
+}
+
 .about-main ul {
     list-style: disc;
     margin-left: 25px;
@@ -318,9 +349,34 @@ p {
     margin-bottom: 10px;
 }
 
+/* Site Top Logo (for header, if you want an image logo there) */
+/* You would need to add an <img> tag with class="site-top-logo" inside your header's nav,
+   e.g., <img src="images/your-logo-circle.png" alt="Food Court Law Firm Logo" class="site-top-logo"> */
+.site-top-logo {
+    width: 60px; /* Smaller size for header logo */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    /* margin: 0 auto; if you want it centered in a div */
+    border: 2px solid #fff; /* White border for contrast on dark header */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* Adjust margin-right if you want space next to text logo */
+    margin-right: 15px;
+}
+
+/* Adjustments for the text logo next to the image logo in header */
+.logo {
+    display: flex; /* Allows the logo text and potential image to be side-by-side */
+    align-items: center;
+    font-size: 1.8rem; /* Keep original size unless you want it smaller */
+    font-weight: bold;
+    color: #fff;
+}
+
 /* Footer */
 footer {
-    background: #2c3e50;
+    background: #2c3e50; /* Dark blue/gray, matching header */
     color: #fff;
     text-align: center;
     padding: 1.5rem 0;
@@ -368,6 +424,18 @@ footer {
     .lawyer-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Adjust header logo on small screens if it becomes too large */
+    .logo {
+        flex-direction: column; /* Stack logo image and text */
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .site-top-logo {
+        margin-right: 0; /* Remove side margin when stacked */
+        margin-bottom: 10px; /* Add bottom margin when stacked */
+    }
 }
 
 @media (max-width: 480px) {
@@ -387,35 +455,4 @@ footer {
     .thankyou-buttons {
         flex-direction: column;
     }
-}
-
-.site-top-logo {
-    width: 80px;   /* Adjusted size: make it smaller */
-    height: 80px;  /* Must match width for a perfect circle */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
-    display: block; /* Important for margin: auto to work */
-    margin: 0 auto; /* Centers the block-level image horizontally */
-    border: 3px solid #191919; /* Optional: adds a distinct border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
-}
-
-/* You might also want to adjust the padding in the container if needed */
-.site-top-logo-container {
-    text-align: center;
-    padding-top: 15px; /* Slightly less padding perhaps, adjust as desired */
-    padding-bottom: 5px; /* Adjust as desired */
-}
-
-/* Consider adjusting the logo text size if it's still too prominent next to the new smaller image logo */
-.logo {
-    font-size: 1.4rem; /* Example: make it slightly smaller than before */
-    /* Or if you only want the image logo and no text next to the nav: */
-    /* display: none; */
-}
-
-/* Also, ensure your header's overall padding doesn't push things around too much */
-header {
-    padding: 0; /* Ensures the logo container handles the top padding */
-    /* Keep other header styles */
 }
